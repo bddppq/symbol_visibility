@@ -12,14 +12,6 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 include_directories("${PROJECT_SOURCE_DIR}")
 
-if(MSVC)
-  if(${CMAKE_BUILD_TYPE} MATCHES "Debug")
-    set(CMAKE_CXX_FLAGS "/MDd" ${CMAKE_CXX_FLAGS})
-  else()
-    set(CMAKE_CXX_FLAGS "/MD" ${CMAKE_CXX_FLAGS})
-  endif()
-endif()
-
 add_library(foo_bar foo_bar.cc)
 if(MSVC)
   set_target_properties(foo_bar PROPERTIES COMPILE_FLAGS "-fvisibility=hidden")
