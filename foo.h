@@ -1,6 +1,6 @@
 #pragma once
 
-#if defined (_WIN32)
+#if defined (_WIN32) && (defined (foo_EXPORTS) || defined (another_bar_EXPORTS))
  #define  MYLIB_EXPORT __declspec(dllexport)
 #else /* defined (_WIN32) */
  #define MYLIB_EXPORT
