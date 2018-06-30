@@ -12,5 +12,5 @@
 
 namespace my {
 void MYLIB_EXPORT Foo();
-void Bar();
+inline void Bar();
 }
