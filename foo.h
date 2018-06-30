@@ -1,7 +1,7 @@
 #pragma once
 
 #if defined (_WIN32)
-  #define  MYLIB_EXPORT __declspec(dllexport)
+ #define  MYLIB_EXPORT __declspec(dllexport)
 #else /* defined (_WIN32) */
  #define MYLIB_EXPORT
 #endif
