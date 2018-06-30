@@ -13,7 +13,11 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 include_directories("${PROJECT_SOURCE_DIR}")
 
 add_library(foo_bar foo_bar.cc)
-set_target_properties(foo_bar PROPERTIES COMPILE_FLAGS "-fvisibility=hidden")
+if(MSVC)
+  set_target_properties(foo_bar PROPERTIES COMPILE_FLAGS "-fvisibility=hidden")
+else()
+  set_target_properties(foo_bar PROPERTIES CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS OFF)
+endif()
 
 add_library(foo SHARED foo.cc)
 target_link_libraries(foo PRIVATE foo_bar)
